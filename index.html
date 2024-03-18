@@ -97,7 +97,7 @@
                         }else if(texto.length > 0 && url.includes('text-to-speech')){
                             audio.src = URL.createObjectURL(blob);
                             anchor.href = URL.createObjectURL(blob);
-
+                            document.querySelector('progress').value
                             setTimeout(()=>{
                                 document.querySelector('time').innerHTML = (document.querySelector('audio').duration / 100).toFixed(2).replace('.',':')
                             },200)
