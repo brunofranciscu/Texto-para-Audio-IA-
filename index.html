@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><<API TTS - 11LABS>></title>
+    <title><<APIT TTS>></title>
     <link rel="stylesheet" href="11labs.css">
 </head>
 
@@ -97,7 +97,7 @@
                         }else if(texto.length > 0 && url.includes('text-to-speech')){
                             audio.src = URL.createObjectURL(blob);
                             anchor.href = URL.createObjectURL(blob);
-                            document.querySelector('progress').value = 0
+                            
                             setTimeout(()=>{
                                 document.querySelector('time').innerHTML = (document.querySelector('audio').duration / 100).toFixed(2).replace('.',':')
                             },200)
@@ -108,7 +108,9 @@
                                 document.querySelector('audio').play();
 
                                 document.querySelector('audio').addEventListener('timeupdate',function(){
-                                    document.querySelector('progress').value = this.currentTime / this.duration * 100
+                                    this.src ? 
+                                        document.querySelector('progress').value = this.currentTime / this.duration * 100 : 
+                                        document.querySelector('progress').value = 0
                                 })
                             })
 
