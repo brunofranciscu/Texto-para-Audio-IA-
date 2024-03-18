@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><<APIT TTS>></title>
+    <title><<API TTS>></title>
     <link rel="stylesheet" href="11labs.css">
 </head>
 
@@ -106,18 +106,18 @@
                                 this.classList.toggle('hidden')
                                 document.querySelector('.pause').classList.toggle('hidden')
                                 document.querySelector('audio').play();
-
-                                document.querySelector('audio').addEventListener('timeupdate',function(){
-                                    this.src ? 
-                                        document.querySelector('progress').value = this.currentTime / this.duration * 100 : 
-                                        document.querySelector('progress').value = 0
-                                })
                             })
 
                             document.querySelector('.pause').addEventListener('click',function(){
                                 this.classList.toggle('hidden')
                                 document.querySelector('.play').classList.toggle('hidden')
                                 document.querySelector('audio').pause();
+                            })
+
+                            document.querySelector('audio').addEventListener('timeupdate',function(){
+                                    this.src ? 
+                                        document.querySelector('progress').value = this.currentTime / this.duration * 100 : 
+                                        document.querySelector('progress').value = 0
                             })
                         }
                     })
