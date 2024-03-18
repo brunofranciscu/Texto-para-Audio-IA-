@@ -1,7 +1,7 @@
 # ai-text-to-speech
 Brincando com a api da ElevenLabs.io
 
-##API ELEVEN LABS
+## API ELEVEN LABS
 
 Brincando com api disponibilizada pele ElevenLabs, tinha pensado em criar um gerador de áudio para videos curtos para tiktok/shorts (bem caracteristico do conteúdo de ai que vemos por lá).
 O resultado foi satisfatório, com uma conta free da elevenLabs dá pra gerar audios de até 10k caracteres, parar gerar videos e engajar nas redes.
