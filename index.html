@@ -40,8 +40,6 @@
         
     </div>
 
-
-
     <dialog class="hidden absolute top-0 left-0 bg-[#00000066] w-full h-full place-items-center z-50">
         <div class="absolute top-1/2 -translate-y-2/4 h-[120px] w-[400px] rounded-lg z-50 text-center grid place-items-center bg-white p-5">
             <button onclick="removeDialog(event)" class="absolute top-0 right-1 text-gray-700 text-[1rem] ">X</button>
@@ -71,7 +69,6 @@
 
         document.querySelector('textarea').onchange = (e) =>{
                 const texto = e.target.value;
-
                 const info = {method: 'GET', headers: {"Accept": "audio/mpeg","Content-Type": "application/json","xi-api-key": event.target.value }}
                 const settings = {
                     method: 'POST',
@@ -94,30 +91,33 @@
                             document.querySelector('sub').innerHTML = `você tem ${userInfo.character_limit - userInfo.character_count} caracteres restantes (incluindo espaços)` 
                             document.querySelector('sub').style.color = userInfo.character_limit - userInfo.character_count < 3000 ? 'red' : 'text-green-600'
 
-                        }else if(texto.length > 0 && url.includes('text-to-speech')){
+                        }else if(texto.length > 0 ){
                             audio.src = URL.createObjectURL(blob);
                             anchor.href = URL.createObjectURL(blob);
-                            
+                            audio.currentTime = 0;
+
                             setTimeout(()=>{
                                 document.querySelector('time').innerHTML = (document.querySelector('audio').duration / 100).toFixed(2).replace('.',':')
                             },200)
 
+                            document.querySelector('audio').currentTime >= document.querySelector('audio').duration ?
+                           ( document.querySelector('.play').classList.toggle('hidden'),document.querySelector('.pause').classList.toggle('hidden')) : null
+
+
                             document.querySelector('.play').addEventListener('click',function(){
-                                this.classList.toggle('hidden')
-                                document.querySelector('.pause').classList.toggle('hidden')
+                                this.classList.add('hidden')
+                                document.querySelector('.pause').classList.remove('hidden')
                                 document.querySelector('audio').play();
                             })
 
                             document.querySelector('.pause').addEventListener('click',function(){
-                                this.classList.toggle('hidden')
-                                document.querySelector('.play').classList.toggle('hidden')
+                                this.classList.add('hidden')
+                                document.querySelector('.play').classList.remove('hidden')
                                 document.querySelector('audio').pause();
                             })
 
                             document.querySelector('audio').addEventListener('timeupdate',function(){
-                                    this.src ? 
-                                        document.querySelector('progress').value = this.currentTime / this.duration * 100 : 
-                                        document.querySelector('progress').value = 0
+                                    document.querySelector('progress').value = (this.currentTime / this.duration) * 100 
                             })
                         }
                     })
