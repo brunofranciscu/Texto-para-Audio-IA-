@@ -1,0 +1,9 @@
+{
+    "name": "11labs",
+    "version": "1.0.0",
+    "author": "KaBuM!",
+    "devDependencies": {
+        "tailwindcss": "^3.3.3",
+        "tailwindcss-3d": "^1.0.1"
+    }
+}

@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+audio{
+    @apply block  h-[100px] mx-auto w-[800px]
+}
