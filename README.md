@@ -1,6 +1,6 @@
 # ai-text-to-speech
 Brincando com a api da ElevenLabs.io
-https://brunofranciscu.github.io/api11labs/
+ https://brunofranciscu.github.io/Texto-para-Audio-IA-/
 
 ## API ELEVEN LABS
 
